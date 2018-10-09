@@ -20,6 +20,17 @@ matrix:
             - cmake-data
       env: COMPILER=g++-5
 
+# For installing SDL library
+before_script:
+  - hg clone https://hg.libsdl.org/SDL SDL
+  - cd SDL
+  - mkdir build
+  - cd build
+  - ../configure
+  - make
+  - sudo make install
+  - cd ../../
+
 before_install:
   - pip install --user cpp-coveralls
 install:
@@ -37,4 +48,9 @@ after_success:
   - coveralls --root .. -E ".*external.*" -E ".*CMakeFiles.*" -E ".*test/.*.cpp.*"
 
 notifications:
-  email: false
+  email: 
+    recipients:
+      - ashishpatel0894@gmail.com
+      - omshiv37@terpmail.umd.edu # University Account
+    on_success: always # default: change
+    on_failure: always # default: always
