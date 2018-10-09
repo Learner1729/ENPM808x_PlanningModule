@@ -1,6 +1,6 @@
 # C++ Boilerplate
-[![Build Status](https://travis-ci.org/dpiet/cpp-boilerplate.svg?branch=master)](https://travis-ci.org/dpiet/cpp-boilerplate)
-[![Coverage Status](https://coveralls.io/repos/github/dpiet/cpp-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/dpiet/cpp-boilerplate?branch=master)
+[![Build Status](https://travis-ci.org/Learner1729/enpm808x_planning_module.svg?branch=master)](https://travis-ci.org/Learner1729/enpm808x_planning_module)
+[![Coverage Status](https://coveralls.io/repos/github/Learner1729/enpm808x_planning_module/badge.svg?branch=master)](https://coveralls.io/github/Learner1729/enpm808x_planning_module?branch=master)
 ---
 
 ## Overview
