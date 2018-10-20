@@ -44,17 +44,30 @@ SOFTWARE.
 ```
 
 ## <a name="overview"></a> Overview 
-This repo is a simple global path planning module, developed for ACME Robotics. Given an initial and final location, the module can compute shortest path using A* algorithm to reach the final location. The purpose of this project is to design a global path planning module that can be integrated to build a robotic system to navigate autonomously in a known environment. 
+This repo is a simple global path planning module, developed for ACME Robotics. Given an initial and final location, the module can compute shortest path using A* algorithm to reach the final location. The purpose of this project is to design a global path planning module that can be integrated to build a robotic system to navigate autonomously in a known environment.
 
 This repository implements a C++ A* algorithm as a global planner along with:
 - cmake
 - googletest
 
+Input:
+- A txt file which contains, occupancy matrix of a known map.
+
+Assumptions:
+- A point robot can move from one node to another node vertically, horizontally as well as diagonally.
+- The cost to move veritically and horizontally from one node to another is assumed to be equal to 1. 
+- The cost to move diagonally from one node to another is assumed to be equal to 1.4142.
+- The heuristic cost in A* algorithm is calculated based on euclidean distance.
+
 ## <a name="references"></a> Reference Materials
 WorkUnderProgress
 
 ## <a name="define"></a> Definitions
-WorkUnderProgress
+**1.** *[Manhattan distance](https://en.wiktionary.org/wiki/Manhattan_distance)*: The distance between two points measured along axes at right angles. <br/>
+**2.** *[Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance)*: The distance between two points in either the plane or 3-dimensional space measures the length of a segment connecting two points. Its calculated based on pythagorean theorem. <br/>
+**3.** *CostToCome*: The distance between the current node and newly generated neighbour nodes. CostToCome for start node is zero. <br/>
+**4.** *CostToGo or Heuristic cost*: It's the euclidean distance between the generated neighbour node to goal node. <br/>
+**5.** *Total cost*: Sum of CostToCome and CostToGo. For start node it will be equal to CostToGo.
 
 ## <a name="sip_process"></a> SIP Process with Sprint Planning
 Sprint Planing is provided in the google doc file, click on the link to access it: [Sprint Planning](https://docs.google.com/document/d/1hVSxTpi_4b7w9EUjY-iULoq4kF_cVz01dV_noVgrym0/edit?usp=sharing)
