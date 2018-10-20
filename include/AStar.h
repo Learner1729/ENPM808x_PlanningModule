@@ -40,6 +40,12 @@
 #ifndef INCLUDE_ASTAR_H_
 #define INCLUDE_ASTAR_H_
 
+// C++ header file
+#include <list> 
+
+// User defined header file
+#include "Nodes.h"
+
 class AStar : public Nodes {
 public:
   AStar();
@@ -49,12 +55,12 @@ public:
   bool sort(const Nodes &, const Nodes &);
   bool checkNodeID() const;
 private:
-  auto width_{640};
-  auto height_{480};
-  auto xStart_{10};
-  auto yStart_{10};
-  auto xGoal_{620};
-  auto yGoal_{460};
+  int width_ = 640;
+  int height_ = 480;
+  int xStart_ = 10;
+  int yStart_ = 10;
+  int xGoal_ = 620;
+  int yGoal_ = 460;
   std::pair<int, int> occupancyMatrix_;
   std::list<Nodes> openSet_;
 };

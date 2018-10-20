@@ -37,7 +37,12 @@
  */
  
 #ifndef INCLUDE_VISUALIZEMAPSDL_H_
-#define INCLUDE_VISUALIZEMAPSDL_H_
+
+// C++ header file
+#include <string>
+
+// Including externally dependent library file
+#include <SDL.h>
 
 class VisualizeMapSDL {
 public:
@@ -54,8 +59,8 @@ private:
 
 private:
   std::string title_;
-  auto closed_{false};
-  auto delay_{500};
+  bool closed_ = false;
+  bool delay_ = 500 ;
   SDL_Window *window_ = nullptr;
   SDL_Renderer *renderer_ = nullptr;
 };

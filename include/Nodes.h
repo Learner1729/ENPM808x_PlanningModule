@@ -43,20 +43,20 @@
 
 class Nodes {
 public:
-  Node();
-  ~Node();
+  Nodes();
+  ~Nodes();
   void computeHeuristic();
   void computeCostToCome();
   void computeTotalCost();
   void checkNode();
 protected:
-  auto nodeID_{false};
-  auto parentID_{0};
-  auto totalCost_{0.0};
-  auto costToCome_{0.0};
-  auto heuristicCost_{0.0};
-  auto xPose_{0};
-  auto yPose_{0};
-}
+  bool nodeID_ = false;
+  int parentID_ = 0;
+  double totalCost_ = 0.0;
+  double costToCome_ = 0.0;
+  double heuristicCost_ = 0.0;
+  int xPose_ = 0 ;
+  int yPose_ = 0 ;
+};
 
 #endif // INCLUDE_NODES_H_
