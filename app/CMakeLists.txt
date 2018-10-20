@@ -5,6 +5,6 @@ include_directories(
     ${SDL2_INCLUDE_DIRS}
 )
 
-add_executable(shell-app main.cpp)
+add_executable(shell-app main.cpp AStar.cpp VisualizeMapSDL.cpp Nodes.cpp)
 
 target_link_libraries(shell-app ${SDL2_LIBRARIES})
