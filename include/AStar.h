@@ -34,7 +34,7 @@
  * The output generated is a path, from start point to end point, or a message 
  * stating that the "Failed! Path can't be found."
  *
- * @last-modified 10-20-2018
+ * @last-modified 10-22-2018
  */
 
 #ifndef INCLUDE_ASTAR_H_
@@ -42,27 +42,95 @@
 
 // C++ header file
 #include <list> 
+#include <string>
+#include <vector>
+#include <memory>
 
 // User defined header file
 #include "Nodes.h"
+#include "VisualizeMapSDL.h"
 
 class AStar : public Nodes {
 public:
+  /**
+   * @brief AStar default constructor
+   * @param none
+   * @return none
+   */
   AStar();
+
+  /**
+   * @brief AStar parameterized constructor
+   * @param reference to a string variable named mapFile, to provide path to
+   *        input file
+   * @return none
+   */
+  AStar(std::string &mapFile);
+  
+  /**
+   * @brief AStar parameterized constructor
+   * @param reference to a string variable named mapFile, to provide path to
+   *        input file
+   * @param w, integer type, provide width_ dimension of the map
+   * @param h, integer type, provide height_ dimension of the map
+   * @return none
+   */
+  AStar(int w, int h, std::string &mapFile);
+  
+  /**
+   * @brief AStar destructor
+   * @param none
+   * @return none
+   */
   ~AStar();
+
+  /**
+   * @brief Member function used to generate Occupancy Matrix
+   *
+   * Reading a occupancy matrix from a txt file and storing it in the 2D Vector
+   *
+   * @param none
+   * @return none
+   */
   void generateMap();
+
+  /**
+   * @brief Function used to get the status of the window
+   * @param none
+   * @return bool, status of closed_ member variable of VisualizeMapSDL class
+   *         if return true, window gets closed
+   *         if return false, window remains open
+   */
+  bool inloop() const;
+  
   void computePath();
   bool sort(const Nodes &, const Nodes &);
   bool checkNodeID() const;
+
 private:
-  int width_ = 640;
-  int height_ = 480;
-  int xStart_ = 10;
-  int yStart_ = 10;
-  int xGoal_ = 620;
-  int yGoal_ = 460;
-  std::pair<int, int> occupancyMatrix_;
+  // variable to define map dimensions
+  int width_{640};
+  int height_{640};
+
+  // variable to define coordinates of start position
+  int xStart_{10};
+  int yStart_{10};
+
+  // variable to define coordinates of goal position
+  int xGoal_{620};
+  int yGoal_{460};
+
+  // variable to store file path
+  std::string mapFileName_{"../input/Map_1.txt"};
+
+  // variable to store occupancyMatrix
+  std::vector< std::vector<int> > occupancyMatrix_;
+
+  // variable to store openNodes that needs to be travelled
   std::list<Nodes> openSet_;
+
+  // object of class VisualizeMapSDL to link VisualizeMapSDL class
+  std::unique_ptr<VisualizeMapSDL> visualize_{nullptr};
 };
 
 #endif // INCLUDE_ASTAR_H_

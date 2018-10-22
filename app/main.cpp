@@ -30,7 +30,7 @@
  *
  * This file is used to demonstrate the AStar algorithm.
  *
- * @last-modified 10-20-2018
+ * @last-modified 10-22-2018
  */
 
 // C++ header file
@@ -40,6 +40,18 @@
 #include "AStar.h"
 
 int main() {
+  std::cout << "======================================" << std::endl;
+  std::cout << "Implementing A* path finding algorithm" << std::endl;
+  std::cout << "======================================" << std::endl;
+  std::cout << std::endl;
 
+  // Update it, according to the MAP you want to use
+  // std::string filePath = "../input/Map_2.txt";
+  // AStar pathFinding(filePath);
+
+  AStar pathFinding;
+  pathFinding.generateMap();
+  while(!pathFinding.inloop()) {
+  }
   return 0;
 }

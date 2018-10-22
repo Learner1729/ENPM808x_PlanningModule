@@ -49,6 +49,7 @@ public:
   void computeCostToCome();
   void computeTotalCost();
   void checkNode();
+  
 protected:
   bool nodeID_ = false;
   int parentID_ = 0;
