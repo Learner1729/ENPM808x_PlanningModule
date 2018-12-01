@@ -50,10 +50,11 @@
 
 /**
  * @brief AStar default constructor
- * @param none
+ * @param Unique pointer visualizeMapSDL object
  * @return none
  */
-AStar::AStar() : visualize_(std::make_unique<VisualizeMapSDL>()) {
+AStar::AStar(VisualizeMapSDL *visualize = nullptr) : 
+visualize_(visualize) {
   std::cout << "[LOG]:Initializing A* object using default constructor";
   std::cout << std::endl;
   // Since we are reading occupancyMatrix from a file which is basically a 
@@ -61,35 +62,6 @@ AStar::AStar() : visualize_(std::make_unique<VisualizeMapSDL>()) {
   // this help's us in pre-sizing the vector.
   // pre-sizing a 2D Matrix of default size width_ x height_  
   occupancyMatrix_.resize(height_,std::vector<int>(width_));
-}
-
-/**
- * @brief AStar parameterized constructor
- * @param reference to a string variable named mapFile, to provide path to
- *        input file
- * @return none
- */
-AStar::AStar(std::string &mapFile) : mapFileName_(mapFile), 
-  visualize_(std::make_unique<VisualizeMapSDL>()) {
-  std::cout << "[LOG]:Initializing A* object using parameterized constructor";
-  std::cout << std::endl;
-  occupancyMatrix_.resize(width_,std::vector<int>(height_));
-}
-
-/**
- * @brief AStar parameterized constructor
- * @param reference to a string variable named mapFile, to provide path to
- *        input file
- * @param w, integer type, provide width_ dimension of the map
- * @param h, integer type, provide height_ dimension of the map
- * @return none
- */
-AStar::AStar(int w, int h, std::string &mapFile) : 
-  width_(w), height_(h), mapFileName_(mapFile), 
-  visualize_(std::make_unique<VisualizeMapSDL>(w, h)) {
-  std::cout << "[LOG]:Initializing A* object using parameterized constructor";
-  std::cout << std::endl;
-  occupancyMatrix_.resize(width_,std::vector<int>(height_)); 
 }
 
 /**
@@ -169,15 +141,4 @@ void AStar::generateMap() {
 bool AStar::inloop() const {
   visualize_->detectEvent();
   return visualize_->isClosed();
-}
-
-void AStar::computePath() {
-}
-
-bool AStar::sort(const Nodes &, const Nodes &) {
-  return true;
-}
-
-bool AStar::checkNodeID() const {
-  return true;
 }

@@ -33,7 +33,7 @@
  * of an environment. It doesn't have any role in implementing planning
  * algorithm. It is only used for showing visual demo of AStar algorithm.
  *
- * @last-modified 10-22-2018
+ * @last-modified 11-30-2018
  */
 
 // C++ header file
@@ -61,24 +61,6 @@
   // if it fails to initialize closed_ will be equal to true.
   closed_ = !init();
  }
-
-/**
- * @brief VisualizeMapSDL parameterized constructor
- *
- * Used in a case when different values are needed to be assigned to member 
- * variables. Internally, calls init member function to initialize the 
- * properties used to create and update window screen.
- *
- * @param width: used to set the width of the window
- * @param height: used to set the height of the window
- * @return none
- */
-VisualizeMapSDL::VisualizeMapSDL(int width, int height) : 
-  screenWidth_(width), screenHeight_(height) {
-    std::cout << "[LOG]:Initializing VisualizeMapSDL object using ";
-    std::cout << "parameterized constructor" << std::endl;
-    closed_ = !init();
-}
 
 /**
  * @brief VisualizeMapSDL destructor 

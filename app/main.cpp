@@ -38,6 +38,7 @@
 
 // User-defined header file
 #include "AStar.h"
+#include "VisualizeMapSDL.h"
 
 int main() {
   std::cout << "======================================" << std::endl;
@@ -45,11 +46,9 @@ int main() {
   std::cout << "======================================" << std::endl;
   std::cout << std::endl;
 
-  // Update it, according to the MAP you want to use
-  // std::string filePath = "../input/Map_2.txt";
-  // AStar pathFinding(filePath);
+  VisualizeMapSDL *visualize = new VisualizeMapSDL();
 
-  AStar pathFinding;
+  AStar pathFinding(visualize);
   pathFinding.generateMap();
   while(!pathFinding.inloop()) {
   }
