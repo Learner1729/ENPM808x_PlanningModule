@@ -62,12 +62,14 @@ Assumptions:
 
 ## <a name="class"></a> Class Diagram for GMocking
 <p align="center">
-<a target="_blank"><img src=""
+<a target="_blank"><img src="UML/initial/GMOCK.png"
 alt="WorkUnderProgress" width="480" height="480" border="10" />
 </a>
 </p>
 
 ## <a name="mock"></a> GMocking
+
+There are two classes VisualizeMapSDL and AStar class, I have make a mock class for VisualizeMapSDL and tested AStar class. You can find the class diagrams above.
 
 ## <a name="packages"></a> Dependencies
 This module uses [SDL library](https://www.libsdl.org/), its a cross-platform development library designed to provide low level access to audio, keyboard, mouse and graphics hardware via OpenGL and Direct3D. It's written in C++ and works natively with C++. I will be using SDL version 2.0 for this project. It's license under [zlib license](https://www.libsdl.org/license.php), which unables me to use this library for any purpose, including commercial applications and can also be distributed freely. The only purpose of this library in this project is to provide visual demo of path planning algorithm.
