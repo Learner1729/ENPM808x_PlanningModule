@@ -1,22 +1,16 @@
 # ENPM808X: MidTerm Project 
 *Building a path planning module for ACME Robotics*
 
-[![Build Status](https://travis-ci.org/Learner1729/ENPM808x_PlanningModule_2.svg?branch=master)](https://travis-ci.org/Learner1729/ENPM808x_PlanningModule_2)
-[![Coverage Status](https://coveralls.io/repos/github/Learner1729/ENPM808x_PlanningModule_2/badge.svg?branch=master)](https://coveralls.io/github/Learner1729/ENPM808x_PlanningModule_2?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 ---
 
 ## Table of Contents
-- [License](#license)
 - [Overview](#overview)
-- [Reference Materials](#references)
 - [Definitions](#define)
-- [SIP Process with Sprint Plannig](#sip_process)
-- [Class Diagram](#class)
-- [Activity Diagram](#activity)
+- [Class Diagram for GMocking](#class)
+- [GMocking](#mock)
 - [Dependencies](#packages)
 - [Standard install via command-line](#implementation)
-- [Building for code coverage](#code_coverage)
 
 ## <a name="license"></a> License
 This project is under the [MIT License](./LICENSE)
@@ -59,9 +53,6 @@ Assumptions:
 - The cost to move diagonally from one node to another is assumed to be equal to 1.4142.
 - The heuristic cost in A* algorithm is calculated based on euclidean distance.
 
-## <a name="references"></a> Reference Materials
-WorkUnderProgress
-
 ## <a name="define"></a> Definitions
 **1.** *[Manhattan distance](https://en.wiktionary.org/wiki/Manhattan_distance)*: The distance between two points measured along axes at right angles. <br/>
 **2.** *[Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance)*: The distance between two points in either the plane or 3-dimensional space measures the length of a segment connecting two points. Its calculated based on pythagorean theorem. <br/>
@@ -69,24 +60,14 @@ WorkUnderProgress
 **4.** *CostToGo or Heuristic cost*: It's the euclidean distance between the generated neighbour node to goal node. <br/>
 **5.** *Total cost*: Sum of CostToCome and CostToGo. For start node it will be equal to CostToGo.
 
-## <a name="sip_process"></a> SIP Process with Sprint Planning
-Sprint Planing is provided in the google doc file, click on the link to access it: [Sprint Planning](https://docs.google.com/document/d/1hVSxTpi_4b7w9EUjY-iULoq4kF_cVz01dV_noVgrym0/edit?usp=sharing)
-
-The SIP Process followed is detailed in a spreadsheet, click on the link to access it: [SIP](https://docs.google.com/spreadsheets/d/1qlEn87uNemp48aORazFHT43D9IT_IYHOCUPLLSN8vvQ/edit?usp=sharing)
-
-## <a name="class"></a> Class Diagram
+## <a name="class"></a> Class Diagram for GMocking
 <p align="center">
 <a target="_blank"><img src=""
 alt="WorkUnderProgress" width="480" height="480" border="10" />
 </a>
 </p>
 
-## <a name="activity"></a> Activity Diagram
-<p align="center">
-<a target="_blank"><img src=""
-alt="WorkUnderProgress" width="480" height="720" border="10" />
-</a>
-</p>
+## <a name="mock"></a> GMocking
 
 ## <a name="packages"></a> Dependencies
 This module uses [SDL library](https://www.libsdl.org/), its a cross-platform development library designed to provide low level access to audio, keyboard, mouse and graphics hardware via OpenGL and Direct3D. It's written in C++ and works natively with C++. I will be using SDL version 2.0 for this project. It's license under [zlib license](https://www.libsdl.org/license.php), which unables me to use this library for any purpose, including commercial applications and can also be distributed freely. The only purpose of this library in this project is to provide visual demo of path planning algorithm.
@@ -95,7 +76,7 @@ Steps to download and install this package can be done following this simple [tu
 
 ## <a name="implementation"></a> Standard install via command-line
 ```
-git clone --recursive https://github.com/Learner1729/enpm808x_planning_module
+git clone --recursive https://github.com/Learner1729/ENPM808x_PlanningModule.git
 cd <path to repository>
 mkdir build
 cd build
@@ -105,11 +86,3 @@ Run tests: ./test/cpp-test
 Run program: ./app/shell-app
 ```
 
-## <a name="code_coverage"></a> Building for code coverage
-```
-sudo apt-get install lcov
-cmake -D COVERAGE=ON -D CMAKE_BUILD_TYPE=Debug ../
-make
-make code_coverage
-```
-This generates a index.html page in the build/coverage sub-directory that can be viewed locally in a web browser.
