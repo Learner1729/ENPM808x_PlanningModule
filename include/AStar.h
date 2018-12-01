@@ -47,35 +47,16 @@
 #include <memory>
 
 // User defined header file
-#include "Nodes.h"
 #include "VisualizeMapSDL.h"
 
-class AStar : public Nodes {
+class AStar {
 public:
   /**
    * @brief AStar default constructor
-   * @param none
+   * @param Unique pointer visualizeMapSDL object
    * @return none
    */
-  AStar();
-
-  /**
-   * @brief AStar parameterized constructor
-   * @param reference to a string variable named mapFile, to provide path to
-   *        input file
-   * @return none
-   */
-  AStar(std::string &mapFile);
-  
-  /**
-   * @brief AStar parameterized constructor
-   * @param reference to a string variable named mapFile, to provide path to
-   *        input file
-   * @param w, integer type, provide width_ dimension of the map
-   * @param h, integer type, provide height_ dimension of the map
-   * @return none
-   */
-  AStar(int w, int h, std::string &mapFile);
+  AStar(VisualizeMapSDL *visualize);
   
   /**
    * @brief AStar destructor
@@ -102,10 +83,6 @@ public:
    *         if return false, window remains open
    */
   bool inloop() const;
-  
-  void computePath();
-  bool sort(const Nodes &, const Nodes &);
-  bool checkNodeID() const;
 
 private:
   // variable to define map dimensions
@@ -126,11 +103,8 @@ private:
   // variable to store occupancyMatrix
   std::vector< std::vector<int> > occupancyMatrix_;
 
-  // variable to store openNodes that needs to be travelled
-  std::list<Nodes> openSet_;
-
   // object of class VisualizeMapSDL to link VisualizeMapSDL class
-  std::unique_ptr<VisualizeMapSDL> visualize_{nullptr};
+  VisualizeMapSDL *visualize_{nullptr};
 };
 
 #endif // INCLUDE_ASTAR_H_

@@ -59,20 +59,6 @@ public:
    * @return none
    */
   VisualizeMapSDL();
-  
-  /**
-   * @brief VisualizeMapSDL parameterized constructor
-   *
-   * Used in a case when different values are needed to be assigned to member 
-   * variables. Internally, calls default constructor which in turn calls init
-   * member function to initialize the properties used to create and update
-   * window screen.
-   *
-   * @param width: used to set the width of the window
-   * @param height: used to set the height of the window
-   * @return none
-   */
-  VisualizeMapSDL(int width, int height);
 
   /**
    * @brief VisualizeMapSDL destructor
@@ -82,28 +68,28 @@ public:
    * @param none
    * @return none
    */
-  ~VisualizeMapSDL();
+  virtual ~VisualizeMapSDL();
 
   /**
    * @brief function to detect window events like mouse click & key press
    * @param none
    * @return none
    */
-  void detectEvent();
+  virtual void detectEvent();
 
   /**
    * @brief function which is used to put things on the screen
    * @param none
    * @return none
    */
-  void clear() const;
+  virtual void clear() const;
   
   /**
    * @brief function to delay the window update speed
    * @param none
    * @return none
    */
-  void callDelay() const;
+  virtual void callDelay() const;
   
   /**
    * @brief 
@@ -116,14 +102,14 @@ public:
    *        Default: Obstacle, color for obstacles (BLACK)
    * @return none
    */
-  void drawPixel(int xPos, int yPos, int color);
+  virtual void drawPixel(int xPos, int yPos, int color);
 
   /**
    * @brief function to update the screen
    * @param none
    * @return none
    */
-  void updateWindow() const;
+  virtual void updateWindow() const;
 
   /**
    * @brief Function used to set the update rate at which windows should be 
@@ -131,24 +117,23 @@ public:
    * @param delayMilliSeconds, integer type, stores the delay time
    * @return none
    */
-  void setDelay(int delay);
+  virtual void setDelay(int delay);
 
   /**
    * @brief Function used to get the status of the window
    * @param none
    * @return bool, status of closed_ member variable
    */
-  inline bool isClosed() const { 
+  virtual inline bool isClosed() const { 
     return closed_;
   }
 
-private:
   /**
    * @brief Initialize SDL properties used to create and update window screen. 
    * @param none
    * @return none
    */
-  bool init();
+  virtual bool init();
 
 private:
   // variable used to give the title to our window
